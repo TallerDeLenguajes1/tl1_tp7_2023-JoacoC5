@@ -28,7 +28,11 @@ public class Calculadora
 
     public void Dividir(double divisor)
     {
-        valor = valor / divisor;
+        if (divisor != 0)
+        {
+            valor = valor / divisor;
+        }
+
     }
 
     public void Limpiar()
