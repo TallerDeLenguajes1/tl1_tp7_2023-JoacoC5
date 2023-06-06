@@ -1,53 +1,45 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using EspacioCalculadora;
+using EspacioEmpleado;
 
-Calculadora cal = new Calculadora();
-int seguir = 1;
-
-do
+internal class Program
 {
-    Console.WriteLine("-----Calculadora Basica-----\n");
-    Console.WriteLine("1.Suma\n2.Resta\n3.Multiplicacion\n4.Division\n5.Limpiar");
-    int operacion;
-    int.TryParse(Console.ReadLine(), out operacion);
-
-    Console.WriteLine("\nIngrese un numero: ");
-    double x;
-    bool control = double.TryParse(Console.ReadLine(), out x);
-
-    if (control)
+    private static void Empleados()
     {
-        switch (operacion)
-        {
-            case 1:
-                cal.Suma(x);
-                break;
-            case 2:
-                cal.Resta(x);
-                break;
-            case 3:
-                cal.Multiplicar(x);
-                break;
-            case 4:
-                cal.Dividir(x);
-                break;
-            case 5:
-                cal.Limpiar();
-                break;
-            default:
-                Console.WriteLine("\nOperacioon no valida\n");
-                break;
-        }
+        Empleado futbolista = new Empleado();
+        futbolista.Nombre = "Lionel Andres";
+        futbolista.Apellido = "Messi";
+        futbolista.FechaNacimineto = new DateTime(1987, 6, 24);
+        futbolista.EstadoCivil = 'C';
+        futbolista.Genero = 'M';
+        futbolista.FechaIngreso = new DateTime(2005, 8, 17);
+        futbolista.SueldoBasico = 100000;
+        futbolista.Cargo = Empleado.cargos.Especialista;
+        double sueldoTotalF = futbolista.Salario();
 
-        Console.WriteLine("Resultado: " + cal.Resultado);
-    }
-    else
-    {
-        Console.WriteLine("\nNo se ingreso un numero");
+        Empleado basquetbolista = new Empleado();
+        basquetbolista.Nombre = "Emanuel Daviv";
+        basquetbolista.Apellido = "Ginobili";
+        basquetbolista.FechaNacimineto = new DateTime(1977, 7, 28);
+        basquetbolista.EstadoCivil = 'C';
+        basquetbolista.Genero = 'M';
+        basquetbolista.FechaIngreso = new DateTime(1998, 6, 30);
+        basquetbolista.SueldoBasico = 60000;
+        basquetbolista.Cargo = Empleado.cargos.Ingeniero;
+        double sueldoTotalB = basquetbolista.Salario();
+
+        Empleado hockista = new Empleado();
+        hockista.Nombre = "Luciana Paula";
+        hockista.Apellido = "Aymar";
+        hockista.FechaNacimineto = new DateTime(1977, 8, 10);
+        hockista.EstadoCivil = 'C';
+        hockista.Genero = 'M';
+        hockista.FechaIngreso = new DateTime(1998, 5, 20);
+        hockista.SueldoBasico = 75000;
+        hockista.Cargo = Empleado.cargos.Administrativo;
+        double sueldoTotalH = hockista.Salario();
     }
 
-    Console.WriteLine("¿Desea realizar otra operacion? //1 = si //");
-    int.TryParse(Console.ReadLine(), out seguir);
 
-} while (seguir == 1);
+}
+

@@ -18,7 +18,7 @@ public class Empleado
     public char Genero { get => genero; set => genero = value; }
     public DateTime FechaIngreso { get => fechaIngreso; set => fechaIngreso = value; }
     public double SueldoBasico { get => sueldoBasico; set => sueldoBasico = value; }
-    private cargos Cargo { get => cargo; set => cargo = value; }
+    public cargos Cargo { get => cargo; set => cargo = value; }
 
     public enum cargos
     {
@@ -59,10 +59,10 @@ public class Empleado
 
     public String Jubilacion(DateTime Now)
     {
-        int faltante = (Now.Day - fechaNacimineto.Day) / 365;
+        int faltante = 65 - Edad(DateTime.Today);
         if (genero == 'M' || genero == 'm')
         {
-            if (faltante < 65)
+            if (Edad(DateTime.Today) < 65)
             {
                 return ("Le faltan " + faltante + "anios para jubilarse");
             }
