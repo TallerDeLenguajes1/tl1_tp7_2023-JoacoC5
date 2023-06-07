@@ -37,7 +37,7 @@ internal class Program
         hockista.Apellido = "Aymar";
         hockista.FechaNacimineto = new DateTime(1977, 8, 10);
         hockista.EstadoCivil = 'C';
-        hockista.Genero = 'M';
+        hockista.Genero = 'F';
         hockista.FechaIngreso = new DateTime(1998, 5, 20);
         hockista.SueldoBasico = 75000;
         hockista.Cargo = Empleado.cargos.Administrativo;
