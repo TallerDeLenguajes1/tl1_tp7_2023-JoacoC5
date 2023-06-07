@@ -59,9 +59,10 @@ public class Empleado
 
     public int Jubilacion()
     {
-        int faltante = 65 - Edad(DateTime.Today);
+        int faltante;
         if (genero == 'M' || genero == 'm')
         {
+            faltante = 65 - Edad(DateTime.Today);
             if (Edad(DateTime.Today) < 65)
             {
                 return faltante;
@@ -73,6 +74,7 @@ public class Empleado
         }
         else
         {
+            faltante = 60 - Edad(DateTime.Today);
             if (faltante < 60)
             {
                 return faltante;

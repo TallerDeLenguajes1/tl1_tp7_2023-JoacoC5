@@ -46,9 +46,9 @@ internal class Program
         double TotalSalarios = sueldoTotalF + sueldoTotalB + sueldoTotalH;
 
 
-        if (futbolista.Jubilacion() > basquetbolista.Jubilacion())
+        if (futbolista.Jubilacion() < basquetbolista.Jubilacion())
         {
-            if (futbolista.Jubilacion() > hockista.Jubilacion())
+            if (futbolista.Jubilacion() < hockista.Jubilacion())
             {
                 Console.WriteLine(futbolista.MostrarDatos());
 
@@ -60,7 +60,7 @@ internal class Program
         }
         else
         {
-            if (basquetbolista.Jubilacion() > hockista.Jubilacion())
+            if (basquetbolista.Jubilacion() < hockista.Jubilacion())
             {
                 Console.WriteLine(basquetbolista.MostrarDatos());
 
