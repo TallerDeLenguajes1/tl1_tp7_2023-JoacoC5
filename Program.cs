@@ -4,7 +4,11 @@ using EspacioEmpleado;
 
 internal class Program
 {
-    private static void Empleados()
+    private static void Main(string[] args)
+    {
+        CargaEmpleados();
+    }
+    private static void CargaEmpleados()
     {
         Empleado futbolista = new Empleado();
         futbolista.Nombre = "Lionel Andres";
@@ -26,7 +30,7 @@ internal class Program
         basquetbolista.FechaIngreso = new DateTime(1998, 6, 30);
         basquetbolista.SueldoBasico = 60000;
         basquetbolista.Cargo = Empleado.cargos.Ingeniero;
-        double sueldoTotalB = basquetbolista.Salario();
+        double sueldoTotalB = basquetbolista.Salario(); ;
 
         Empleado hockista = new Empleado();
         hockista.Nombre = "Luciana Paula";
@@ -38,7 +42,40 @@ internal class Program
         hockista.SueldoBasico = 75000;
         hockista.Cargo = Empleado.cargos.Administrativo;
         double sueldoTotalH = hockista.Salario();
+
+        double TotalSalarios = sueldoTotalF + sueldoTotalB + sueldoTotalH;
+
+
+        if (futbolista.Jubilacion() > basquetbolista.Jubilacion())
+        {
+            if (futbolista.Jubilacion() > hockista.Jubilacion())
+            {
+                Console.WriteLine(futbolista.MostrarDatos());
+
+            }
+            else
+            {
+                Console.WriteLine(hockista.MostrarDatos());
+            }
+        }
+        else
+        {
+            if (basquetbolista.Jubilacion() > hockista.Jubilacion())
+            {
+                Console.WriteLine(basquetbolista.MostrarDatos());
+
+            }
+            else
+            {
+                Console.WriteLine(hockista.MostrarDatos());
+            }
+        }
+
+
+        Console.WriteLine("\n\nMonto Total en concepto de Salarios: $" + TotalSalarios);
+
     }
+
 
 
 }

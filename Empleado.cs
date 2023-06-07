@@ -57,29 +57,29 @@ public class Empleado
         return (Today.Subtract(FechaNacimineto).Days / 365);
     }
 
-    public String Jubilacion(DateTime Now)
+    public int Jubilacion()
     {
         int faltante = 65 - Edad(DateTime.Today);
         if (genero == 'M' || genero == 'm')
         {
             if (Edad(DateTime.Today) < 65)
             {
-                return ("Le faltan " + faltante + "anios para jubilarse");
+                return faltante;
             }
             else
             {
-                return ("Ya puede jubilarse");
+                return 0;
             }
         }
         else
         {
             if (faltante < 60)
             {
-                return ("Le faltan " + faltante + "anios para jubilarse");
+                return faltante;
             }
             else
             {
-                return ("Ya puede jubilarse");
+                return 0;
             }
         }
     }
@@ -124,5 +124,14 @@ public class Empleado
         adicional = ant + car + cas;
         return (sueldoBasico + adicional);
     }
+
+    public string MostrarDatos()
+    {
+        return ("\nEMPLEADO PRONTO A JUBILARSE\n\nNombre: " + Nombre + "\nApellido: " + Apellido +
+                "\nFecha de Nacimiento: " + FechaNacimineto.ToShortDateString() + "\nEstado Civil: " +
+                EstadoCivil + "\nGenero: " + Genero + "\nFecha de Ingreso: " + FechaIngreso.ToShortDateString() +
+                "\nCargo: " + Cargo + "\nSueldo Basico: $" + SueldoBasico + "\nSalario Total: $" + Salario());
+    }
+
 }
 
